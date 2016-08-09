@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- R7Capsule profile -->
+<profileR7Capsule>
+
+	<profile id="#CHIKIStoHD-USB">
+        <!-- 7zip command -->
+        <!-- 7z a -t7z %destination% %source%\ -x@%exclusion% -mm=lzma2 -mx=9 -mmt=2 -mtm=on -mtc=on -mta=on -ssw -mhe -p%passencrypt% -->
+
+        <!-- Log setup -->
+        <logFileEnable>true</logFileEnable>
+        <logFilePath>c:\temp\R7CapsuleLog.log</logFilePath>
+
+        <!-- Compress setup -->
+        <compressEnable>true</compressEnable>
+        <compressCmdLinexx>7z a -t7z c:\temp\zipeado.7z c:\temp\aaa\ -mm=lzma2 -mx=9 -mmt=2 -mtm=on -mtc=on -mta=on -ssw -mhe -bso1 -bse1 -bsp1 -u- -up0q3r2x2y2z0w2!c:\temp\diff_(%DATE:~-4%.%DATE:~3,2%.%DATE:~0,2%_%TIME:~0,2%.%TIME:~3,2%.%TIME:~6,2%).7z</compressCmdLinexx>
+        <compressCmdLinex>7z a -tzip c:\temp\zipeado.zip c:\temp\aaa\ -bso1 -bse1 -bsp1 -v5m</compressCmdLinex>
+        <compressCmdLinea>7z u -t7z c:\temp\zipeado.7z c:\temp\aaa\ -mm=lzma2 -mx=9 -mmt=2 -mtm=on -mtc=on -mta=on -ssw -mhe -bso1 -bse1 -bsp1</compressCmdLinea>
+        <compressSource>c:\temp\aaa\</compressSource>
+        <compressTarget>@jatome_HD-USB_01:\zipeado.7z</compressTarget>
+        <compressCmdLine>7z
+                            u                 <!-- Update (files deleted in source will be deleted in compressed file)-->
+                            compressTarget    <!-- Place in commandline where to place target of compression -->
+                            compressSource    <!-- Place in commandline where to place Origin of compression -->
+                            -t7z              <!-- 7zip type of compression -->
+                            -mm=lzma2         <!-- type of 7zip compression -->
+                            -mx=9             <!-- Maximum compression -->
+                            -mmt=2            <!-- Enable multithreading with 2 cores -->
+                            -mtm=on           <!-- Stores last modified timestamps -->
+                            -mtc=on           <!-- Stores creation timestamps -->
+                            -mta=on           <!-- Stores last access timestamps -->
+                            -ssw              <!-- Include files opened by another applications -->
+                            -mhe              <!-- Encrypts archive header (this will hide the file names inside the archive) -->
+                            -pdesternillantE3 <!-- Password for encryption -->
+                            -bso1
+                            -bse1
+                            -bsp1</compressCmdLine>
+
+        <!-- transfer setup -->
+        <transferEnable>false</transferEnable>
+        <transferCmdLinex>rsync -avz --perms --partial-dir=../tmp-partial --progress --delete --backup --backup-dir=/cygdrive/c/Temp/bck_(%DATE:~-4%.%DATE:~3,2%.%DATE:~0,2%_%TIME:~0,2%.%TIME:~3,2%.%TIME:~6,2%) /cygdrive/c/temp/zipeado.7z /cygdrive/c/temp/bbb/</transferCmdLinex>
+        <transferCmdLinexx>rsync -avz --perms --partial-dir=../tmp-partial --progress --delete /cygdrive/c/temp/zipeado.7z /cygdrive/c/temp/bck_(%DATE:~-4%.%DATE:~3,2%.%DATE:~0,2%_%TIME:~0,2%.%TIME:~3,2%.%TIME:~6,2%)/</transferCmdLinexx>
+        <transferCmdLinexxx>rsync -avz -c --no-whole-file --perms --partial-dir=../tmp-partial --progress --delete /cygdrive/c/temp/*.7z* /cygdrive/c/temp/bbb/</transferCmdLinexxx>
+        <transferCmdLine>rsync</transferCmdLine>
+    </profile>
+
+    <profile id="1">
+        <compressEnable>false</compressEnable>
+        <compressCmdLinexx>7z a -t7z c:\temp\zipeado.7z c:\temp\aaa\ -mm=lzma2 -mx=9 -mmt=2 -mtm=on -mtc=on -mta=on -ssw -mhe -bso1 -bse1 -bsp1 -u- -up0q3r2x2y2z0w2!c:\temp\diff_(%DATE:~-4%.%DATE:~3,2%.%DATE:~0,2%_%TIME:~0,2%.%TIME:~3,2%.%TIME:~6,2%).7z</compressCmdLinexx>
+        <compressCmdLinex>7z a -tzip c:\temp\zipeado.zip c:\temp\aaa\ -bso1 -bse1 -bsp1 -v5m</compressCmdLinex>
+        <compressCmdLinea>7z u -t7z c:\temp\zipeado.7z c:\temp\aaa\ -mm=lzma2 -mx=9 -mmt=2 -mtm=on -mtc=on -mta=on -ssw -mhe -bso1 -bse1 -bsp1</compressCmdLinea>
+        <compressSource>c:\temp\aaa\</compressSource>
+        <compressTarget>@jatome_HD-USB_01:\zipeado.7z</compressTarget>
+        <compressCmdLine>7z
+            u                 <!-- Update (files deleted in source will be deleted in compressed file)-->
+            compressTarget    <!-- Place in commandline where to place target of compression -->
+            compressSource    <!-- Place in commandline where to place Origin of compression -->
+            -t7z              <!-- 7zip type of compression -->
+            -mm=lzma2         <!-- type of 7zip compression -->
+            -mx=9             <!-- Maximum compression -->
+            -mmt=2            <!-- Enable multithreading with 2 cores -->
+            -mtm=on           <!-- Stores last modified timestamps -->
+            -mtc=on           <!-- Stores creation timestamps -->
+            -mta=on           <!-- Stores last access timestamps -->
+            -ssw              <!-- Include files opened by another applications -->
+            -mhe              <!-- Encrypts archive header (this will hide the file names inside the archive) -->
+            -pdesternillantE3 <!-- Password for encryption -->
+            -bso1
+            -bse1
+            -bsp1</compressCmdLine>
+
+        <!-- rsync command -->
+        <transferEnable>false</transferEnable>
+        <transferCmdLinex>rsync -avz --perms --partial-dir=../tmp-partial --progress --delete --backup --backup-dir=/cygdrive/c/Temp/bck_(%DATE:~-4%.%DATE:~3,2%.%DATE:~0,2%_%TIME:~0,2%.%TIME:~3,2%.%TIME:~6,2%) /cygdrive/c/temp/zipeado.7z /cygdrive/c/temp/bbb/</transferCmdLinex>
+        <transferCmdLinexx>rsync -avz --perms --partial-dir=../tmp-partial --progress --delete /cygdrive/c/temp/zipeado.7z /cygdrive/c/temp/bck_(%DATE:~-4%.%DATE:~3,2%.%DATE:~0,2%_%TIME:~0,2%.%TIME:~3,2%.%TIME:~6,2%)/</transferCmdLinexx>
+        <transferCmdLinexxx>rsync -avz -c --no-whole-file --perms --partial-dir=../tmp-partial --progress --delete /cygdrive/c/temp/*.7z* /cygdrive/c/temp/bbb/</transferCmdLinexxx>
+        <transferCmdLine>rsync</transferCmdLine>
+    </profile>
+
+</profileR7Capsule>
