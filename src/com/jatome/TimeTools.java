@@ -46,7 +46,7 @@ public class TimeTools {
      * @return: String with differential time chronoEndms-chronoStartms in the following format:
      *          Days:Hours:Minutes:Seconds:Milliseconds
      */
-    public String getChronoElapseTime() {
+    public String getChronoElapsedTime() {
 
         long diffms = chronoStopms-chronoStartms;
         /*double aux = (double)(diffms/3600000); //to hours
@@ -61,12 +61,12 @@ public class TimeTools {
 
         int days = (int)TimeUnit.MILLISECONDS.toDays(diffms); //to integer days
         int aux = days*24;
-        int hours = (int)TimeUnit.MILLISECONDS.toHours(diffms); //remaining hours
-        aux = aux + hours*60;
+        int hours = (int)(TimeUnit.MILLISECONDS.toHours(diffms)-aux); //remaining hours
+        aux = (aux + hours)*60;
         int minutes = (int)(TimeUnit.MILLISECONDS.toMinutes(diffms)-aux); //remaining minutes
-        aux = aux + minutes*60;
+        aux = (aux + minutes)*60;
         int seconds = (int)(TimeUnit.MILLISECONDS.toSeconds(diffms)-aux); //remaining seconds
-        aux = aux + seconds*1000;
+        aux = (aux + seconds)*1000;
         int milliseconds = (int)(diffms-aux); //remaining milliseconds
         return String.format("%02d Days : %02d Hours : %02d Minutes : %02d Seconds : %03d Milliseconds", days, hours, minutes, seconds, milliseconds);
     }

@@ -68,8 +68,8 @@ public class R7Capsule {
             chrono.chronoStart();
             cmd.cmdLauncher(cmdcompress, currentdir); //Se lanza el comando de compresión
             chrono.chronoStop();
-            System.out.println(chrono.getChronoElapseTime());
-            log.WriteLog("Elapsed Time of Compression: " + chrono.getChronoElapseTime());
+            System.out.println(chrono.getChronoElapsedTime());
+            log.WriteLog("Elapsed Time of Compression: " + chrono.getChronoElapsedTime());
             log.WriteLog(">>>> Compression finished.");
         }
         if (hmProfileContent.get("transferEnable").equals("true")) {//transfer is enabled

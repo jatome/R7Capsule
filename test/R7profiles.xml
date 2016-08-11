@@ -2,7 +2,7 @@
 <!-- R7Capsule profile -->
 <profileR7Capsule>
 
-	<profile id="#CHIKIStoHD-USB">
+	<profile id="testing">
         <!-- 7zip command -->
         <!-- 7z a -t7z %destination% %source%\ -x@%exclusion% -mm=lzma2 -mx=9 -mmt=2 -mtm=on -mtc=on -mta=on -ssw -mhe -p%passencrypt% -->
 
@@ -15,8 +15,8 @@
         <compressCmdLinexx>7z a -t7z c:\temp\zipeado.7z c:\temp\aaa\ -mm=lzma2 -mx=9 -mmt=2 -mtm=on -mtc=on -mta=on -ssw -mhe -bso1 -bse1 -bsp1 -u- -up0q3r2x2y2z0w2!c:\temp\diff_(%DATE:~-4%.%DATE:~3,2%.%DATE:~0,2%_%TIME:~0,2%.%TIME:~3,2%.%TIME:~6,2%).7z</compressCmdLinexx>
         <compressCmdLinex>7z a -tzip c:\temp\zipeado.zip c:\temp\aaa\ -bso1 -bse1 -bsp1 -v5m</compressCmdLinex>
         <compressCmdLinea>7z u -t7z c:\temp\zipeado.7z c:\temp\aaa\ -mm=lzma2 -mx=9 -mmt=2 -mtm=on -mtc=on -mta=on -ssw -mhe -bso1 -bse1 -bsp1</compressCmdLinea>
-        <compressSource>c:\temp\aaa\</compressSource>
-        <compressTarget>@jatome_HD-USB_01:\zipeado.7z</compressTarget>
+        <compressSource>c:\temp\aaa</compressSource>
+        <compressTarget>C:\temp\zipeado.7z</compressTarget>
         <compressCmdLine>7z
                             u                 <!-- Update (files deleted in source will be deleted in compressed file)-->
                             compressTarget    <!-- Place in commandline where to place target of compression -->
